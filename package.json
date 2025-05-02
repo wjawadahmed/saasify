@@ -2,9 +2,10 @@
   "name": "saasify-template",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-     "build": "tailwindcss -i ./style.css -o ./output.css"
-  },
+ "scripts": {
+  "build": "mkdir -p dist && tailwindcss -i ./public/style.css -o ./dist/output.css && cp ./public/index.html ./dist/"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
