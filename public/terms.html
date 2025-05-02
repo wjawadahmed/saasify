@@ -8,6 +8,18 @@
   <title>Terms and Conditions | SaaSify</title>
   <link href="./output.css" rel="stylesheet" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuButton.addEventListener('click', function() {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col">
@@ -22,6 +34,7 @@
           </h1>
         </a>
         
+        <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center space-x-1">
           <a href="index.html" class="px-4 py-2 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-200 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600">Home</a>
           <a href="features.html" class="px-4 py-2 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-200 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600">Features</a>
@@ -29,9 +42,12 @@
           <a href="contact.html" class="px-4 py-2 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-200 font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600">Contact</a>
         </nav>
         
+        <!-- Mobile Menu Button -->
         <div class="md:hidden flex items-center">
           <button 
-            aria-label="Open mobile menu" 
+            id="mobile-menu-button"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
             class="p-2 text-gray-600 hover:text-indigo-600 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 transition-colors"
           >
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -40,9 +56,18 @@
           </button>
         </div>
       </div>
+      
+      <!-- Mobile Navigation (Hidden by default) -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div class="flex flex-col space-y-2 mt-2">
+          <a href="index.html" class="px-4 py-2 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-200 font-medium">Home</a>
+          <a href="features.html" class="px-4 py-2 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-200 font-medium">Features</a>
+          <a href="pricing.html" class="px-4 py-2 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-200 font-medium">Pricing</a>
+          <a href="contact.html" class="px-4 py-2 text-gray-700 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-all duration-200 font-medium">Contact</a>
+        </div>
+      </div>
     </div>
   </header>
-
   <!-- Main Content -->
   <main class="flex-grow">
     <!-- Terms Section -->
